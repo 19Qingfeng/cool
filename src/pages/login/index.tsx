@@ -1,4 +1,5 @@
-import React, { useMemo } from 'react';
+import React, { useContext, useMemo } from 'react';
+import { phoneContext } from '../../context/phoneConext';
 import {
   LoginLeft,
   LoginModel,
@@ -10,16 +11,21 @@ import {
   OAuthWrapper,
   Other,
   OtherText,
-  QqLogo,
 } from '../../style/components/login';
+import QqAuth from './sociologyAuth/qq';
 
+/**
+ * 社会化登陆
+ */
 const Login: React.FC = () => {
   const logoList = useMemo(() => {
-    return [(key: number) => <QqLogo key={key}></QqLogo>];
+    return [(key: number) => <QqAuth key={key}></QqAuth>];
   }, []);
 
+  const isPhone = useContext(phoneContext);
+
   return (
-    <LoginWrapper>
+    <LoginWrapper isPhone={isPhone}>
       <LoginLeft>
         <Logo>logo</Logo>
         <LoginModel>
@@ -36,7 +42,7 @@ const Login: React.FC = () => {
           </ModalFooter>
         </LoginModel>
       </LoginLeft>
-      <LoginRight />
+      {!isPhone && <LoginRight />}
     </LoginWrapper>
   );
 };

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import QqLogoPsd from '../../assets/image/login/qq_login.png';
+import QqLogoPng from 'assets/image/login/qq_login.png';
 import { cursor } from './utils';
 const BG_COLOR = '#fff';
 
@@ -14,7 +14,9 @@ const Line = `display: block;
 
 export const LoginWrapper = styled.div`
   display: grid;
-  grid-template-columns: 3fr 1.2fr;
+  grid-template-columns: ${(props: { isPhone: boolean }) =>
+    props.isPhone ? '1fr' : '3fr 1.2fr;'};
+
   height: 100vh;
   width: 100vw;
   background: ${BG_COLOR};
@@ -97,7 +99,7 @@ export const OAuthWrapper = styled.div`
 export const QqLogo = styled.div`
   height: 24px;
   width: 76px;
-  background-image: url(${QqLogoPsd});
+  background-image: url(${QqLogoPng});
 `;
 
 export const LoginRight = styled.div`
