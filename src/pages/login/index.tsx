@@ -1,6 +1,7 @@
 import { Modal } from "antd";
-import React, { useContext, useMemo } from "react";
+import React, { useContext, useMemo, useRef } from "react";
 import { phoneContext } from "../../context/phoneConext";
+import { useTranslation } from "react-i18next";
 import {
   LoginLeft,
   LoginModel,
@@ -25,8 +26,21 @@ export interface AuthModalItem {
  * 社会化登陆
  */
 const Login: React.FC = () => {
+  const aref = useRef(null);
+  const { t } = useTranslation("translation");
   const { visibleAuthModal, modalInfo, openAuthModal, closeAuthModal } =
     useAuthModal();
+
+  // const logoList: AuthModalItem[] = [
+  //   {
+  //     component: () => <QqLogoPng />,
+  //     type: "qq",
+  //   },
+  //   {
+  //     component: () => <div>微信登陆</div>,
+  //     type: "wechat",
+  //   },
+  // ];
 
   const logoList = useMemo<AuthModalItem[]>(() => {
     return [
@@ -45,14 +59,14 @@ const Login: React.FC = () => {
   const isPhone = useContext(phoneContext);
 
   return (
-    <LoginWrapper isPhone={isPhone}>
+    <LoginWrapper isPhone={isPhone} ref={aref}>
       <LoginLeft>
         <Logo>logo</Logo>
         <LoginModel>
-          <ModalTitle>清风的网站</ModalTitle>
+          <ModalTitle>{t("login.title")}</ModalTitle>
           <ModalFooter>
             <Other>
-              <OtherText>更多登陆方式</OtherText>
+              <OtherText>{t("login.more")}</OtherText>
             </Other>
             <OAuthWrapper>
               {logoList.map((i, index) => (

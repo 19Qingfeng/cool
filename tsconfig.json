@@ -8,10 +8,17 @@
     "strict": true,
     "allowSyntheticDefaultImports": true,
     "paths": {
-      "assets/*": ["./src/assets/*"],
-      "styled/*": ["./src/style/*"],
-      "utils/*": ["./src/utils/*"]
+      "assets/*": [
+        "./src/assets/*"
+      ],
+      "styled/*": [
+        "./src/style/*"
+      ],
+      "utils/*": [
+        "./src/utils/*"
+      ],
     },
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "resolveJsonModule": true
   }
 }
