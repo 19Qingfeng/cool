@@ -1,4 +1,4 @@
-import { defaultQqConfig, OAuthConfig } from './authConfig'
+import { defaultQqConfig, OAuthConfig } from "./authConfig";
 
 // TODO: 对接其他社会化登陆时候 检查是否统一 想办法抽离逻辑服用
 
@@ -8,14 +8,14 @@ import { defaultQqConfig, OAuthConfig } from './authConfig'
  * @returns Qq OAuth 地址
  */
 export function getQqRedirectUrl(config?: Partial<OAuthConfig>) {
-  const params: Partial<OAuthConfig> = { ...defaultQqConfig, ...config }
+  const params: Partial<OAuthConfig> = { ...defaultQqConfig, ...config };
   if (params.link) {
-    const url = params.link
-    delete params.link
-    const searchParams = new URLSearchParams(params).toString()
-    const finallyUrl = `${url}?${searchParams}`
-    return finallyUrl.toString()
+    const url = params.link;
+    delete params.link;
+    const searchParams = new URLSearchParams(params).toString();
+    const finallyUrl = `${url}?${searchParams}`;
+    return finallyUrl.toString();
   }
 
-  throw new Error('qq oauth way must have app Key!')
+  throw new Error("qq oauth way must have app Key!");
 }

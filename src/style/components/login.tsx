@@ -1,7 +1,7 @@
-import styled from 'styled-components';
-import QqLogoPng from 'assets/image/login/qq_login.png';
-import { cursor } from './utils';
-const BG_COLOR = '#fff';
+import styled from "styled-components";
+import QqLogoPng from "assets/image/login/qq_login.png";
+import { cursor } from "./utils";
+const BG_COLOR = "#fff";
 
 const Line = `display: block;
     position: relative;
@@ -15,7 +15,7 @@ const Line = `display: block;
 export const LoginWrapper = styled.div`
   display: grid;
   grid-template-columns: ${(props: { isPhone: boolean }) =>
-    props.isPhone ? '1fr' : '3fr 1.2fr;'};
+    props.isPhone ? "1fr" : "3fr 1.2fr;"};
 
   height: 100vh;
   width: 100vw;
@@ -89,6 +89,8 @@ export const Other = styled.div`
  * O auth 包裹组件
  */
 export const OAuthWrapper = styled.div`
+  display: flex;
+  width: 100%;
   margin: 10px 0;
   .logo-oauth {
     ${cursor};

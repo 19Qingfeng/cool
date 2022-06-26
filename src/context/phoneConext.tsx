@@ -1,5 +1,5 @@
-import React, { FC, createContext } from 'react';
-import { useMediaQuery } from 'react-responsive';
+import React, { FC, createContext } from "react";
+import { useMediaQuery } from "react-responsive";
 
 export const phoneContext = createContext(false);
 

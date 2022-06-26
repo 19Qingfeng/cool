@@ -1,9 +1,9 @@
-import React from 'react';
-import Login from '../pages/login';
+import React from "react";
+import Login from "../pages/login";
 
 export default [
   {
-    path: '/',
+    path: "/",
   },
-  { path: '/login', element: <Login /> },
+  { path: "/login", element: <Login /> },
 ];
